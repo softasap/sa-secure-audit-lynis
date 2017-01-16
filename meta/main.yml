@@ -1,7 +1,7 @@
 ---
 galaxy_info:
   author: vyacheslav voronenko
-  description: installs rkhunter anti rootkit utility
+  description: installs lynis system security audit utility
   company: http://www.voronenko.info/
   # If the issue tracker for your role is not on github, uncomment the
   # next line and provide a value
@@ -26,7 +26,7 @@ galaxy_info:
         - trusty
         - xenial
   galaxy_tags:
-    - rkhunter
+    - lynis
     - audit
     - security
     - ubuntu
