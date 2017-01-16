@@ -13,3 +13,15 @@
     become: true
     tags:
       - lynus
+
+  - name: Lynis | Reset rights
+    file: path="/usr/local/lynis" owner="{{ lynis_user }}" group="root" recurse=true
+    become: true
+    tags:
+      - lynus
+
+  - name: Lynis | symlink tool
+    file: src=/usr/local/lynis/lynis dest=/usr/bin/lynis state=link
+    become: true
+    tags:
+      - lynus
