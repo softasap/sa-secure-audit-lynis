@@ -3,13 +3,13 @@
   - include: __scan_root_hosts.yml ssh_known_hosts="{{lynis_ssh_known_hosts}}"
 
   - name: Lynis | Clone repo
-    git: accept_hostkey=false update=yes dest="/opt/lynis" repo="https://github.com/CISOfy/lynis.git"  version: "{{ lynis_version | default('2.4.0') }}"
+    git: accept_hostkey=false update=yes dest="/usr/local/lynis" repo="https://github.com/CISOfy/lynis.git"  version="{{ lynis_version | default('2.4.0') }}"
     become: true
     tags:
       - lynus
 
   - name: Lynis | Reset rights
-    file: path="/opt/lynis" owner="{{ lynis_user }}" group="root" recurse=true
+    file: path="/usr/local/lynis" owner="{{ lynis_user }}" group="root" recurse=true
     become: true
     tags:
       - lynus
