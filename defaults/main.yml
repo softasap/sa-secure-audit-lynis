@@ -1,0 +1,12 @@
+---
+# defaults file for sa-secure-audit-lynis
+
+option_install_git: true
+
+lynis_version: "2.4.0"
+
+lynis_user: root
+
+lynis_ssh_known_hosts:
+  - github.com
+  - bitbucket.org
