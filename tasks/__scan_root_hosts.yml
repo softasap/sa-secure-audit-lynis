@@ -1,5 +1,9 @@
 ---
-  - name: Scan Hosts | Make sure the known hosts file exists
+  - name: Scan Hosts | Make sure the known hosts file exists 1/2
+    file: path="/root/.ssh" state=directory
+    become: true
+  
+  - name: Scan Hosts | Make sure the known hosts file exists 2/2
     file: path="/root/.ssh/known_hosts" state=touch
     become: true
 
