@@ -2,6 +2,7 @@ sa-secure-audit-lynis
 =====================
 [![Build Status](https://travis-ci.org/softasap/sa-secure-audit-lynis.svg?branch=master)](https://travis-ci.org/softasap/sa-secure-audit-lynis)
 
+Lynis is a security auditing tool for UNIX derivatives. Open source software, part of CISOfy's Lynis Enterprise product.  Assists with compliance testing (HIPAA/ISO27001/PCI DSS) and system hardening. Agentless.
 
 Example of use: check box-example
 
