@@ -52,6 +52,28 @@ sudo lynis audit system
 ```
 
 
+Usage with ansible galaxy workflow
+----------------------------------
+
+If you installed the sa-secure-audit-lynis role using the command
+
+
+`
+   ansible galaxy install softasap.sa-secure-audit-lynis
+`
+
+the role will be available in the folder library\softasap.sa-secure-audit-lynis.
+Please adjust the path accordingly.
+
+```YAML
+
+     - {
+         role: "softasap.sa-secure-audit-lynis"
+       }
+
+```
+
+
 Copyright and license
 ---------------------
 
