@@ -6,7 +6,10 @@
       - git
 
   - name: GIT | Install package
-    apt: pkg="git" state="latest"
+    apt: pkg="git" state="present"
     become: yes
+    retries: 3
+    register: git_result
+    until: not git_result.failed
     tags:
       - git

@@ -1,9 +1,14 @@
 ---
 
-  - include: __scan_root_hosts.yml ssh_known_hosts="{{lynis_ssh_known_hosts}}"
+  - include: __scan_root_hosts.yml ssh_known_hosts="{{ lynis_ssh_known_hosts }}"
 
   - name: Lynis | Clone repo
-    git: accept_hostkey=false update=yes dest="/usr/local/lynis" repo="https://github.com/CISOfy/lynis.git"  version="{{ lynis_version | default('2.4.0') }}"
+    git:
+      accept_hostkey: false
+      update: yes
+      dest: "/usr/local/lynis"
+      repo: "https://github.com/CISOfy/lynis.git"
+      version: "{{ lynis_version | default('2.7.5') }}"
     become: true
     tags:
       - lynus
