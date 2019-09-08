@@ -2,7 +2,7 @@
   - name: Scan Hosts | Make sure the known hosts file exists 1/2
     file: path="/root/.ssh" state=directory
     become: true
-  
+
   - name: Scan Hosts | Make sure the known hosts file exists 2/2
     file: path="/root/.ssh/known_hosts" state=touch
     become: true
@@ -10,16 +10,18 @@
 
   - name: Check host name availability
     shell: "ssh-keygen -f /root/.ssh/known_hosts -F {{ item }}"
-    with_items: "{{ssh_known_hosts | default([])}}"
+    with_items: "{{ ssh_known_hosts | default([]) }}"
     when: ssh_known_hosts is defined
     become: true
     register: ssh_known_host_results
     ignore_errors: yes
+    tags:
+      - skip_ansible_lint
 
   - name: Scan the public key
     shell: "ssh-keyscan -H -T 10 {{ item.item }} >> /root/.ssh/known_hosts"
-    with_items: "{{ssh_known_host_results.results}}"
-    when: item.stdout == ""
+    with_items: "{{ ssh_known_host_results.results }}"
+    when: item.stdout | length == 0
     become: true
 
   - name: Set the security

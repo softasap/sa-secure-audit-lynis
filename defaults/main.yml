@@ -3,7 +3,7 @@
 
 option_install_git: true
 
-lynis_version: "2.4.0"
+lynis_version: "2.7.5"
 
 lynis_user: root
 
